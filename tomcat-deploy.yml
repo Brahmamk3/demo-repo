@@ -1,0 +1,21 @@
+---
+- hosts: webserver
+  become: yes
+  tasks:
+  - name: install openjdk
+    apt:
+      name: openjdk-11-jdk
+      state: present
+  - name: install tomact
+    apt:
+      name: tomcat9
+      state: present
+  - name: enabled and start tomcat  
+    systemd:
+      name: tomcat9
+      state: started
+      enabled: yes
+  - name: deploy into tomcat
+    copy:
+      src: target/*.war
+      dest: /var/lib/tomcat9/webapps/
