@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('GitHub Validation') {
             steps {
-                git branch: 'main', url: 'https://github.com/Brahmamk3/milestone2.git'
+                git branch: 'main', url: 'https://github.com/Brahmamk3/demo-repo.git'
             }
         }
 
